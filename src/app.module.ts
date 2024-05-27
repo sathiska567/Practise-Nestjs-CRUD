@@ -7,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ProjectModule } from './project/project.module';
 // import config from './config/keys';
 import { ConfigModule } from '@nestjs/config';
+import { RegisterUserModule } from './register-user/register-user.module';
 
 
 @Module({
@@ -23,7 +24,8 @@ import { ConfigModule } from '@nestjs/config';
     }),
 
     MongooseModule.forRoot(process.env.MONGO_URL),
-    ProjectModule,
+    // ProjectModule,
+    RegisterUserModule,
   ],
   
   controllers: [AppController],
