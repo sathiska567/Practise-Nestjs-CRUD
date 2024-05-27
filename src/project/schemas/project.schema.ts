@@ -1,33 +1,13 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Schema, Document } from 'mongoose';
 
-export enum Category{
-   ADVENTURE='adventure',
-   CLASSICS = 'Classics',
-   CRIME = 'crime',
-   FANTASY = 'fantasy',
+export interface User extends Document {
+  // Define your user properties here
+  username: string;
+  description: string;
 }
 
-export type ProjectDocument = project & Document;
+export const UserSchema = new Schema({
+  username: { type: String, required: true },
+  description: { type: String, required: true },
 
-
-@Schema()
-export class project {
-    @Prop({ required: true }) 
-    title: string;
-
-    @Prop()  
-    description: string;
-
-    @Prop()  
-    author: string;
-
-    @Prop()  
-    price: number;
-    
-    @Prop()
-    category: Category;
-
-}
-
-
-export const projectSchema = SchemaFactory.createForClass(project);
+});

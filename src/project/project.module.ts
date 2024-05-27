@@ -2,10 +2,16 @@ import { Module } from '@nestjs/common';
 import { ProjectService } from './project.service';
 import { ProjectController } from './project.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { project, projectSchema } from './schemas/project.schema';
+import { UserSchema } from './schemas/project.schema';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: project.name, schema: projectSchema }])],
+
+  // register our schema
+  // ! important
+  imports:[
+    // MongooseModule.forFeature([{name:'user',schema:User}])
+    MongooseModule.forFeature([{ name: 'registerUser', schema: UserSchema }])
+  ],
   controllers: [ProjectController],
   providers: [ProjectService],
 })
