@@ -8,6 +8,7 @@ import { ProjectModule } from './project/project.module';
 // import config from './config/keys';
 import { ConfigModule } from '@nestjs/config';
 import { RegisterUserModule } from './register-user/register-user.module';
+import { JwtModule } from '@nestjs/jwt';
 
 
 @Module({
@@ -24,6 +25,17 @@ import { RegisterUserModule } from './register-user/register-user.module';
     }),
 
     MongooseModule.forRoot(process.env.MONGO_URL),
+  
+    // register the jwt service
+    JwtModule.registerAsync({
+      useFactory: async() => ({
+        secret: process.env.JWT_SECRET,
+        signOptions: {
+          expiresIn: '60s',
+        },
+      }),
+    }),
+
     // ProjectModule,
     RegisterUserModule,
   ],

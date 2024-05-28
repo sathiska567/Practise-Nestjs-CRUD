@@ -13,4 +13,9 @@ export class RegisterUserController {
    async createUser(@Body() createRegisterUserDto: User){
       return this.registerUserService.RegisterUser(createRegisterUserDto)
    }
+
+   @Post('login')
+   async loginUser(@Body() createRegisterUserDto: User){
+      return this.registerUserService.LoginUser(createRegisterUserDto)
+   }
 }
