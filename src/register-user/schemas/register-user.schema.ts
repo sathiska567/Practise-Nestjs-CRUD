@@ -5,11 +5,13 @@ export interface User extends Document {
   email: string;
   password: string;
   jwt:string;
+  isAdmin:boolean;
 }
 
 export const UserSchema = new Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   jwt: { type: String, required: false,default:null},
+  isAdmin:{type:Boolean , require:false,default:false}
 
 });
