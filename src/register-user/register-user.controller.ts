@@ -18,4 +18,9 @@ export class RegisterUserController {
    async loginUser(@Body() createRegisterUserDto: User){
       return this.registerUserService.LoginUser(createRegisterUserDto)
    }
+
+   @Get('get-all-user')
+   async getAllRegisterUser(){
+      return this.registerUserService.getAllRegisterUser()
+   }
 }

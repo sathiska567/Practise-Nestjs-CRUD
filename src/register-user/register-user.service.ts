@@ -97,6 +97,25 @@ async LoginUser(user: User) {
      };
    }
  }
+
+
+// GET ALL REGISTER USERS
+async getAllRegisterUser() {
+  try {
+    const data = await this.userModel.find();
+    return {
+      success: true,
+      message: 'All users',
+      users: data
+    }
+  } catch (error) {
+     return {
+       success: false,
+       message: 'Failed to get all users',
+       error: error.message
+     }
+  }
+}
    
 
 
