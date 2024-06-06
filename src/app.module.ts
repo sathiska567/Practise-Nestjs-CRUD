@@ -9,6 +9,7 @@ import { ProjectModule } from './project/project.module';
 import { ConfigModule } from '@nestjs/config';
 import { RegisterUserModule } from './register-user/register-user.module';
 import { JwtModule } from '@nestjs/jwt';
+import { AddCreateDetailsModule } from './add-create-details/add-create-details.module';
 
 
 @Module({
@@ -38,6 +39,8 @@ import { JwtModule } from '@nestjs/jwt';
 
     // ProjectModule,
     RegisterUserModule,
+
+    AddCreateDetailsModule,
   ],
   
   controllers: [AppController],
