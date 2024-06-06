@@ -10,7 +10,7 @@ import { MulterModule } from '@nestjs/platform-express';
    imports:[
     MongooseModule.forFeature([{ name: 'postCreate', schema: postDetailsSchema }]),
     MulterModule.register({
-      dest: './uploads',   // Destination folder for uploaded files
+      dest: './upload',   // Destination folder for uploaded files
     })
    ],
 
