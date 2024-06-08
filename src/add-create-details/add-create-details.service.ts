@@ -30,23 +30,47 @@ export class AddCreateDetailsService {
         resolve(result);
       });
     })
-    // try {
-    //   const data = new this.postCreateModel(postDetails);
-    //   await data.save();
-
-    //   return {
-    //     success: true,
-    //     message: 'Post Create successfully',
-    //     createdData: data
-    //   };
-
-    // } catch (error) {
-    //   return {
-    //     success: false,
-    //     message: 'Post Create UnSuccessfully',
-    //     error: error
-    //   };
-
-    // }
   }
+
+ // uplaod details to the backend
+  async create(createAddCreateDetails: postDetails){
+     console.log(createAddCreateDetails);
+
+     try {
+      const data = await this.postCreateModel.create(createAddCreateDetails)
+
+      return {
+        success: true,
+        message: 'User registered successfully',
+        user: data
+     };
+      
+     } catch (error) {
+      return {
+        success: false,
+        message: 'Add Create Unsuccessful',
+        error
+     };
+     }
+     
+  }
+
+
+//  get created Details
+async getAll() {
+  try {
+    const data = await this.postCreateModel.find().exec();
+    return {
+      success: true,
+      message: 'Successfully fetched',
+      data
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: 'Unsuccessful',
+    }
+}
+
+}
 }
