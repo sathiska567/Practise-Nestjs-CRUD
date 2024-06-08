@@ -13,7 +13,7 @@ export class AddCreateDetailsController {
      private readonly addCreateDetailsService: AddCreateDetailsService, //
    ){}
 
-   @Post('post-details')
+   @Post('upload-image')
    @UseInterceptors(FileInterceptor('image'))
    async uploadFile(@UploadedFile() file:Express.Multer.File) {
     console.log(file);
@@ -22,4 +22,22 @@ export class AddCreateDetailsController {
     return result
       // return this.addCreateDetailsService.createPost(createAddCreateDetailDto)
    }
-}
+
+   @Post('post-details')
+   async uploadData(@Body() addCreatedDetails:postDetails) {
+    // console.log(addCreatedDetailsDTO);
+      return this.addCreateDetailsService.create(addCreatedDetails)
+   }
+
+
+  //  Get Created Add Details
+  @Get('get-created-adds')
+  async getDetails(){
+      return this.addCreateDetailsService.getAll()
+  }
+
+
+
+
+
+  }
