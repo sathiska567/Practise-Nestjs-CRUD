@@ -36,8 +36,4 @@ export class AddCreateDetailsController {
       return this.addCreateDetailsService.getAll()
   }
 
-
-
-
-
   }

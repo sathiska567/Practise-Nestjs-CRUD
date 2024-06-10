@@ -10,6 +10,7 @@ import { ConfigModule } from '@nestjs/config';
 import { RegisterUserModule } from './register-user/register-user.module';
 import { JwtModule } from '@nestjs/jwt';
 import { AddCreateDetailsModule } from './add-create-details/add-create-details.module';
+import { BrowsClassModule } from './brows-class/brows-class.module';
 
 
 @Module({
@@ -41,6 +42,8 @@ import { AddCreateDetailsModule } from './add-create-details/add-create-details.
     RegisterUserModule,
 
     AddCreateDetailsModule,
+
+    BrowsClassModule,
   ],
   
   controllers: [AppController],
